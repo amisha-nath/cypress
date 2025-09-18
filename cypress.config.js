@@ -2,7 +2,11 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-  
+    specPattern: 'cypress/e2e/cw/**/*.cy.js',
+    baseUrl: 'https://opensource-demo.orangehrmlive.com',
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
     reporter: 'mochawesome',
     reporterOptions: {
       reportDir: 'cypress/reports',
@@ -13,12 +17,8 @@ module.exports = defineConfig({
       reportPageTitle: 'OrangeHRM Test Report',
       embeddedScreenshots: true,
       inlineAssets: true,
-      saveAllAttempts:false,
-  },
-    // baseUrl: 'https://opensource-demo.orangehrmlive.com',
-    // setupNodeEvents(on, config) {
-    //   require('cypress-mochawesome-reporter/plugin')(on);
-    // },
+      saveAllAttempts: false,
+    },
   },
   screenshotOnRunFailure: true,
   screenshotsFolder: 'cypress/screenshots',
@@ -26,5 +26,4 @@ module.exports = defineConfig({
   videosFolder: 'cypress/videos',
   viewportWidth: 1280,
   viewportHeight: 720,
-  
 });

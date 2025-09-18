@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-18T17:08:29.732Z",
+    "end": "2025-09-18T17:08:43.746Z",
+    "duration": 14014,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ceb5e7b5-5f8b-477c-947d-07a6e370519f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cw\\exp4.cy.js",
+      "file": "cypress\\e2e\\cw\\exp4.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "27565b1b-dc19-43e4-b013-4882a1a3b214",
+          "title": "OrangeHRM Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "successful login with valid credentials",
+              "fullTitle": "OrangeHRM Login Tests successful login with valid credentials",
+              "timedOut": null,
+              "duration": 8828,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\cw\\\\exp4.cy.js\"\n}",
+              "code": "cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');\ncy.get('input[name=\"username\"]').type('Admin');\ncy.get('input[name=\"password\"]').type('admin123');\ncy.get('button[type=\"submit\"]').click();\ncy.url().should('include', '/dashboard');\ncy.get('.oxd-topbar-header-title').should('contain', 'Dashboard');",
+              "err": {},
+              "uuid": "e6a23025-3e1a-4af1-82c9-3086794109ca",
+              "parentUUID": "27565b1b-dc19-43e4-b013-4882a1a3b214",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "failed login with invalid credentials",
+              "fullTitle": "OrangeHRM Login Tests failed login with invalid credentials",
+              "timedOut": null,
+              "duration": 5021,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\cw\\\\exp4.cy.js\"\n}",
+              "code": "cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');\ncy.get('input[name=\"username\"]').type('InvalidUser');\ncy.get('input[name=\"password\"]').type('InvalidPass');\ncy.get('button[type=\"submit\"]').click();\ncy.get('.oxd-alert-content').should('be.visible');",
+              "err": {},
+              "uuid": "886bff4d-1402-445a-a02d-1380ed8c95bd",
+              "parentUUID": "27565b1b-dc19-43e4-b013-4882a1a3b214",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e6a23025-3e1a-4af1-82c9-3086794109ca",
+            "886bff4d-1402-445a-a02d-1380ed8c95bd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13849,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

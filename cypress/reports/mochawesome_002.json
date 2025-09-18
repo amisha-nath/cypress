@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-18T17:09:21.518Z",
+    "end": "2025-09-18T17:09:30.314Z",
+    "duration": 8796,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa3daf8b-1f25-44ce-9de3-ff44b6cc6505",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cw\\exp1.cy.js",
+      "file": "cypress\\e2e\\cw\\exp1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6bc0ada2-8446-4b6c-b760-4f752724b5a2",
+          "title": "OrangeHRM Screenshot Examples",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "demonstrates screenshot capabilities",
+              "fullTitle": "OrangeHRM Screenshot Examples demonstrates screenshot capabilities",
+              "timedOut": null,
+              "duration": 8695,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n    \"value\": \"cypress\\\\e2e\\\\cw\\\\exp1.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\exp1.cy.js\\\\login-page.png\",\n        \"\\\\exp1.cy.js\\\\login-logo.png\",\n        \"\\\\exp1.cy.js\\\\login-form-filled.png\",\n        \"\\\\exp1.cy.js\\\\dashboard-page.png\"\n      ]\n    ]\n  }\n]",
+              "code": "// Visit login page\ncy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');\n// Wait for the login branding to be visible\ncy.get('.orangehrm-login-branding', {\n  timeout: 10000\n}).should('be.visible');\n// Capture entire page\ncy.screenshot('login-page');\n// Capture specific element\ncy.get('.orangehrm-login-branding').screenshot('login-logo');\n// Wait for username and password fields to be visible\ncy.get('input[name=\"username\"]').should('be.visible').type('Admin');\ncy.get('input[name=\"password\"]').should('be.visible').type('admin123');\n// Capture filled form\ncy.screenshot('login-form-filled');\n// Submit form\ncy.get('button[type=\"submit\"]').should('be.enabled').click();\n// Wait for dashboard to load\ncy.url({\n  timeout: 10000\n}).should('include', '/dashboard');\n// Optionally wait for a dashboard element to confirm it's fully loaded\ncy.get('.oxd-topbar-header-title', {\n  timeout: 10000\n}).should('be.visible');\n// Capture dashboard page\ncy.screenshot('dashboard-page');",
+              "err": {},
+              "uuid": "6c7fdf04-a279-4bf3-843e-29bc208af0ea",
+              "parentUUID": "6bc0ada2-8446-4b6c-b760-4f752724b5a2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6c7fdf04-a279-4bf3-843e-29bc208af0ea"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8695,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}
