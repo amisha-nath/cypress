@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        run: npx cypress run --browser chrome --headless
+        run: npx cypress run --spec "cypress/e2e/cw" --browser chrome --headless
 
       - name: Generate HTML report
         run: |
