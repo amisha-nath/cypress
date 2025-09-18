@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        run: npx cypress run --spec "cypress/e2e/cw" 
+        run: npx cypress run --spec "cypress/e2e/cw/**/*.cy.js"
 
       - name: Generate HTML report
         run: |
