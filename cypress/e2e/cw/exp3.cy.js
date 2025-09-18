@@ -1,6 +1,6 @@
 describe('OrangeHRM Error Handling Examples', () => {
 it('handles element not found gracefully', () => {
-cy.visit('/web/index.php/auth/login');
+cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 // Check if element exists before interacting
 cy.get('input[name="username"]').should('exist').type('Admin');
 cy.get('input[name="password"]').should('exist').type('admin123');
@@ -25,7 +25,7 @@ cy.url().should('include', '/dashboard');
 it('handles network errors gracefully', () => {
 // Intercept API calls and handle errors
 cy.intercept('GET', '**/api/**').as('apiCall');
-cy.visit('/web/index.php/auth/login');
+cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 cy.get('input[name="username"]').type('Admin');
 cy.get('input[name="password"]').type('admin123');
 cy.get('button[type="submit"]').click();

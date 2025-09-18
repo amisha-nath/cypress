@@ -1,7 +1,7 @@
 describe('OrangeHRM Screenshot Examples', () => {
   it('demonstrates screenshot capabilities', () => {
     // Visit login page
-    cy.visit('/web/index.php/auth/login');
+    cy.visit('https://opensource-demo.orangehrmlive.co/web/index.php/auth/login');
 
     // Wait for the login branding to be visible
     cy.get('.orangehrm-login-branding', { timeout: 10000 }).should('be.visible');

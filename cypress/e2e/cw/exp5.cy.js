@@ -11,7 +11,7 @@ describe('OrangeHRM CI/CD Tests', () => {
 
   it('completes critical path smoke test', () => {
     // Login
-    cy.visit('/web/index.php/auth/login');
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
     cy.get('input[name="username"]').type(username);
     cy.get('input[name="password"]').type(password);
     cy.get('button[type="submit"]').click();

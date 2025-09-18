@@ -1,7 +1,7 @@
 describe('OrangeHRM Video Examples', () => {
 it('completes a full user journey', () => {
 // This entire test will be recorded
-cy.visit('/web/index.php/auth/login');
+cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 // Login
 cy.get('input[name="username"]').type('Admin');
 cy.get('input[name="password"]').type('admin123');
