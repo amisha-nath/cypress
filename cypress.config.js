@@ -7,11 +7,11 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
-  screenshotOnRunFailure: true, // Auto-screenshot on test failure
-  screenshotsFolder: 'cypress/screenshots', // Screenshots save location
-  video: true, // Record videos
-  videosFolder: 'cypress/videos', // Videos save location
-  viewportWidth: 1280, // Set video dimensions
+  screenshotOnRunFailure: true,
+  screenshotsFolder: 'cypress/screenshots',
+  video: true,
+  videosFolder: 'cypress/videos',
+  viewportWidth: 1280,
   viewportHeight: 720,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
