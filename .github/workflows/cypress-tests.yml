@@ -28,11 +28,11 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        run: npx cypress run --spec "cypress/e2e/cw" --browser chrome --headless
+        run: npx cypress run --spec "cypress/e2e/cw" 
 
       - name: Generate HTML report
         run: |
-          npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json
+          npx mochawesome-merge cypress/reports/mochawesome*.json > cypress/reports/report.json
           npx marge cypress/reports/report.json -f report -o cypress/reports/html
 
       - name: Upload test artifacts
