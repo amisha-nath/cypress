@@ -1,0 +1,136 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-09-18T06:03:35.360Z",
+    "end": "2025-09-18T06:03:45.489Z",
+    "duration": 10129,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6f3d1c5c-27ae-4333-a414-a70f9f53b459",
+      "title": "",
+      "fullFile": "cypress\\e2e\\assertions.cy.js",
+      "file": "cypress\\e2e\\assertions.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a3deb32e-8cdb-4099-8048-51e415cd668b",
+          "title": "SauceDemo Login and Inventory Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Valid login and inventory page assertions",
+              "fullTitle": "SauceDemo Login and Inventory Tests Valid login and inventory page assertions",
+              "timedOut": null,
+              "duration": 4128,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\assertions.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\assertions.cy.js\\\\SauceDemo Login and Inventory Tests -- Valid login and inventory page assertions (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit(baseUrl);\ncy.get('#user-name').type(validUser);\ncy.get('#password').type(password);\ncy.get('#login-button').click();\ncy.url().should('include', '/inventory.html');\ncy.task('log', 'Logged in and navigated to inventory page');\n// Existence and Visibility\ncy.get('.inventory_list').should('exist').and('be.visible');\ncy.get('.shopping_cart_link').should('exist').and('be.visible');\ncy.get('.product_sort_container1').should('not.exist');\ncy.task('log', 'Inventory list and cart icon are visible');\n// Text Content\ncy.get('.title').should('have.text', 'Products');\ncy.get('.inventory_item_name').first().should('include.text', 'Sauce');\ncy.get('.title').should('not.have.text', 'Dashboard');\ncy.task('log', 'Title and product name text validated');\n// Attribute and Class\ncy.get('.inventory_item_img img').first().should('have.attr', 'alt').and('match', /Sauce Labs/);\ncy.get('.shopping_cart_link').should('have.class', 'shopping_cart_link');\ncy.get('.shopping_cart_link').should('not.have.class', 'disabled');\ncy.task('log', 'Image alt and cart class assertions passed');\n// Input and Value\ncy.get('.inventory_item').should('have.length.greaterThan', 5);\ncy.get('.inventory_item_price').first().invoke('text').then(priceText => {\n  expect(priceText).to.match(/^\\$\\d+\\.\\d{2}$/);\n  cy.task('log', `Price format validated: ${priceText}`);\n});\n// URL and Window\ncy.url().should('eq', 'https://www.saucedemo.com/inventory.html');\ncy.window().should('have.property', 'localStorage');\ncy.task('log', 'URL and window.localStorage verified');\n// Chained Assertions\ncy.get('.btn_inventory').first().should('be.visible').and('include.text', 'Add to cart').and('not.have.class', 'disabled');\ncy.task('log', 'Add to cart button is active and visible');\n// Function-based Assertions\ncy.get('.inventory_item_name').then($items => {\n  expect($items).to.have.length.greaterThan(5);\n  expect($items.first()).to.contain('Sauce');\n  cy.task('log', `Found ${$items.length} items, first contains: ${$items.first().text()}`);\n});",
+              "err": {
+                "message": "CypressError: `cy.task('log')` failed with the following error:\n\nThe 'task' event has not been registered in the setupNodeEvents method. You must register it before using cy.task()\n\nFix this in your setupNodeEvents method here:\nC:\\cypress\\cypress.config.js\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('log')` failed with the following error:\n\nThe 'task' event has not been registered in the setupNodeEvents method. You must register it before using cy.task()\n\nFix this in your setupNodeEvents method here:\nC:\\cypress\\cypress.config.js\n\nhttps://on.cypress.io/api/task\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:138534:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "01bd3c54-fe8c-4f04-b3a4-1347d941a514",
+              "parentUUID": "a3deb32e-8cdb-4099-8048-51e415cd668b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Invalid login should show error message",
+              "fullTitle": "SauceDemo Login and Inventory Tests Invalid login should show error message",
+              "timedOut": null,
+              "duration": 2428,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\assertions.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\assertions.cy.js\\\\SauceDemo Login and Inventory Tests -- Invalid login should show error message (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit(baseUrl);\ncy.get('#user-name').type(invalidUser);\ncy.get('#password').type(password);\ncy.get('#login-button').click();\ncy.get('[data-test=\"error\"]').should('exist').and('be.visible').and('contain.text', 'Username and password do not match');\ncy.task('log', 'Error message displayed for invalid login');\ncy.task('log', 'Invalid login test completed');",
+              "err": {
+                "message": "CypressError: `cy.task('log')` failed with the following error:\n\nThe 'task' event has not been registered in the setupNodeEvents method. You must register it before using cy.task()\n\nFix this in your setupNodeEvents method here:\nC:\\cypress\\cypress.config.js\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('log')` failed with the following error:\n\nThe 'task' event has not been registered in the setupNodeEvents method. You must register it before using cy.task()\n\nFix this in your setupNodeEvents method here:\nC:\\cypress\\cypress.config.js\n\nhttps://on.cypress.io/api/task\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:138534:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "559f3f53-5128-482c-a12d-9cd6b455bab3",
+              "parentUUID": "a3deb32e-8cdb-4099-8048-51e415cd668b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "01bd3c54-fe8c-4f04-b3a4-1347d941a514",
+            "559f3f53-5128-482c-a12d-9cd6b455bab3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6556,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
