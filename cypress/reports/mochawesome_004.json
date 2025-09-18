@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-18T04:39:07.292Z",
+    "end": "2025-09-18T04:39:08.610Z",
+    "duration": 1318,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ed23116e-70fe-4f57-9258-de69c65a7c3a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\exp1.cy.js",
+      "file": "cypress\\e2e\\exp1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e943b034-25b2-4fd4-a0fc-8ee28df1054a",
+          "title": "OrangeHRM Screenshot Examples",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "demonstrates screenshot capabilities",
+              "fullTitle": "OrangeHRM Screenshot Examples demonstrates screenshot capabilities",
+              "timedOut": null,
+              "duration": 982,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit login page\ncy.visit('http://localhost:8080/web/index.php/auth/login');\ncy.wait(2000);\n// Capture entire page\ncy.screenshot('login-page');\ncy.wait(2000);\n// Capture specific element\ncy.get('.orangehrm-login-branding').screenshot('login-logo');\n// Fill login form\ncy.get('input[name=\"username\"]').type('Admin');\ncy.get('input[name=\"password\"]').type('admin123');\n// Capture filled form\ncy.screenshot('login-form-filled');\n// Submit form\ncy.get('button[type=\"submit\"]').click();\n// Verify dashboard and capture\ncy.url().should('include', '/dashboard');\ncy.wait(2000);\ncy.screenshot('dashboard-page');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/web/index.php/auth/login\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > AggregateError\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/web/index.php/auth/login\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > AggregateError\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at <unknown> (http://localhost:50984/__cypress/runner/cypress_runner.js:134998:74)\n    at visitFailedByErr (http://localhost:50984/__cypress/runner/cypress_runner.js:134552:12)\n    at <unknown> (http://localhost:50984/__cypress/runner/cypress_runner.js:134997:11)\n    at tryCatcher (http://localhost:50984/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:50984/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:50984/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:50984/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:50984/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (http://localhost:50984/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:50984/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:50984/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:50984/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/exp1.cy.js:4:3)\n\nFrom Node.js Internals:\n  AggregateError [ECONNREFUSED]: \n      at internalConnectMultiple (node:net:1139:18)\n      at afterConnectMultiple (node:net:1714:7)",
+                "diff": null
+              },
+              "uuid": "26634093-14cf-406c-993c-d433a0b8fd22",
+              "parentUUID": "e943b034-25b2-4fd4-a0fc-8ee28df1054a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "26634093-14cf-406c-993c-d433a0b8fd22"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 982,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "inlineAssets": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
